@@ -1,0 +1,13 @@
+_BASE_: ../Base-AGW.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnest_backbone
+  WEIGHTS: '/home/lorenzo/PycharmProjects/ReID/fast-reid/logs/CMDM/agw_S50/model_best.pth'
+  TEST_WEIGHTS: '/home/lorenzo/PycharmProjects/ReID/fast-reid/logs/msmt17/agw_S50/model_best.pth'
+
+DATASETS:
+  NAMES: ("MSMT17",)
+  TESTS: ("MSMT17",)
+
+OUTPUT_DIR: logs/msmt17/agw_S50

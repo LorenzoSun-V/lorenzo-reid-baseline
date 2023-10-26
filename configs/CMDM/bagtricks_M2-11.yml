@@ -1,0 +1,15 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_mobilenetv2_backbone
+    DEPTH: 1.0x
+    FEAT_DIM: 1280
+    PRETRAIN: True
+    PRETRAIN_PATH: /home/vitis-ai-user/.cache/torch/checkpoints/mobilenet_v2.pth.tar
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+
+OUTPUT_DIR: logs/CMDM/bagtricks_M2-11

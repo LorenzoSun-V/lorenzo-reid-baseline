@@ -1,0 +1,19 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  PRETRAIN: True
+  PRETRAIN_PATH: logs/CMDM/bagtricks_S50-10/model_best.pth
+  BACKBONE:
+    NAME: build_resnest_backbone
+    PRETRAIN: False
+    # PRETRAIN_PATH: '/home/lorenzo/.cache/torch/checkpoints/resnest50-528c19ca.pth'
+
+DATASETS:
+  NAMES: ("CUHK03", )
+  TESTS: ("CUHK03", )
+
+# TEST:
+#   RERANK: 
+#     ENABLED: True
+
+OUTPUT_DIR: logs/cuhk03/bagtricks_S50-10

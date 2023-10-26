@@ -1,0 +1,19 @@
+_BASE_: ../Base-bagtricks.yml
+# replace GlobalAveragePooling with GeneralizedMeanPooling
+
+MODEL:
+  # TEST_WEIGHTS: logs/CMDM/bagtricks_R50/model_best.pth
+
+  HEADS:
+    POOL_LAYER: GeneralizedMeanPooling
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+# TEST:
+#   EVAL_PERIOD: 1
+
+OUTPUT_DIR: logs/CMDM/bagtricks_R50-8
+
+#SOLVER:
+#  IMS_PER_BATCH: 400

@@ -1,0 +1,7 @@
+_BASE_: ../Base-SBS.yml
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+
+OUTPUT_DIR: logs/CMDM/sbs_R50

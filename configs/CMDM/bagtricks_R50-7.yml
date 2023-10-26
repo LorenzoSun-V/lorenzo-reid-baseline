@@ -1,0 +1,41 @@
+_BASE_: ../Base-bagtricks.yml
+# add circle loss + backbone freeze + lr cosine decay + NL + IBN + SE + GMP
+
+MODEL:
+  WEIGHTS: logs/CMDM/bagtricks_R50-7/model_best.pth
+  PRETRAIN: False
+
+  BACKBONE:
+    PRETRAIN: False
+    WITH_NL: True
+    WITH_IBN: True
+    WITH_SE: True
+
+  HEADS:
+    POOL_LAYER: GeneralizedMeanPoolingP
+
+  # FREEZE_LAYERS: [ backbone ]
+
+  LOSSES:
+    NAME: ("CrossEntropyLoss", "TripletLoss", "CircleLoss")
+    CIRCLE:
+      SCALE: 0.1
+
+SOLVER:
+  SCHED: CosineAnnealingLR
+  ETA_MIN_LR: 1e-5
+  FREEZE_ITERS: 2000
+
+INPUT:
+  SIZE_TRAIN: [ 384, 128 ]
+  SIZE_TEST: [ 384, 128 ]
+
+  AUTOAUG:
+    ENABLED: True
+    PROB: 0.1
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+
+OUTPUT_DIR: logs/CMDM/bagtricks_R50-7

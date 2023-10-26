@@ -1,0 +1,13 @@
+_BASE_: ../Base-AGW.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnest_backbone
+  WEIGHTS: '/home/lorenzo/PycharmProjects/ReID/fast-reid/logs/CMDM/agw_S50/model_best.pth'
+  TEST_WEIGHTS: '/home/lorenzo/PycharmProjects/ReID/fast-reid/logs/cuhk03/agw_S50/model_best.pth'
+
+DATASETS:
+  NAMES: ("CUHK03",)
+  TESTS: ("CUHK03",)
+
+OUTPUT_DIR: logs/cuhk03/agw_S50

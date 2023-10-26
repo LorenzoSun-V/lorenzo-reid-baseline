@@ -1,0 +1,11 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+
+OUTPUT_DIR: logs/CMDM/bagtricks_R50-ibn

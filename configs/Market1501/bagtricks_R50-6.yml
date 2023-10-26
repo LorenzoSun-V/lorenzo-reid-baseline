@@ -1,0 +1,32 @@
+_BASE_: ../Base-bagtricks.yml
+# add circle loss 
+
+MODEL:
+  PRETRAIN: True
+  PRETRAIN_PATH: /workspace/lorenzo/ReID/lorenzo-reid-baseline/logs/CMDM/bagtricks_R50/model_best.pth
+  # FREEZE_LAYERS: [ backbone ]
+  LOSSES:
+    NAME: ("TripletLoss", "CircleLoss")
+
+    TRI:
+      MARGIN: 0.3
+      HARD_MINING: True
+      NORM_FEAT: False
+      SCALE: 3.
+
+    CIRCLE:
+      SCALE: 0.1
+
+SOLVER:
+  SCHED: MultiStepLR
+  # STEPS: [ 40, 50, 80 ]
+  GAMMA: 0.1
+  # SCHED: CosineAnnealingLR
+  # ETA_MIN_LR: 1e-5
+  # FREEZE_ITERS: 2000
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+OUTPUT_DIR: logs/market1501/bagtricks_R50-6

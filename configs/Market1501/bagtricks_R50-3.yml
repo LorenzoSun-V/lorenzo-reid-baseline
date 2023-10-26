@@ -1,0 +1,15 @@
+_BASE_: ../Base-bagtricks.yml
+# add NonLocal
+
+MODEL:
+  PRETRAIN: True
+  PRETRAIN_PATH: /workspace/lorenzo/ReID/lorenzo-reid-baseline/logs/CMDM/bagtricks_R50-nl/model_best.pth
+  BACKBONE:
+    PRETRAIN: False
+    WITH_NL: True
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+OUTPUT_DIR: logs/market1501/bagtricks_R50-3

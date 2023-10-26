@@ -1,0 +1,12 @@
+_BASE_: ../Base-AGW.yml
+
+MODEL:
+  BACKBONE:
+    PRETRAIN: False
+  WEIGHTS: '/home/lorenzo/PycharmProjects/ReID/fast-reid/logs/CMDM/agw_R50/model_best.pth'
+
+DATASETS:
+  NAMES: ("DukeMTMC",)
+  TESTS: ("DukeMTMC",)
+
+OUTPUT_DIR: logs/dukemtmc/agw_R50

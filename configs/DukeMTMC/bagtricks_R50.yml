@@ -1,0 +1,11 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  PRETRAIN: True
+  PRETRAIN_PATH: /workspace/lorenzo/ReID/lorenzo-reid-baseline/logs/CMDM/bagtricks_R50/model_best.pth
+  
+DATASETS:
+  NAMES: ("DukeMTMC",)
+  TESTS: ("DukeMTMC",)
+
+OUTPUT_DIR: logs/dukemtmc/bagtricks_R50

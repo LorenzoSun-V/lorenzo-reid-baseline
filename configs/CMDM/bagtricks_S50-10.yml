@@ -1,0 +1,13 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnest_backbone
+    PRETRAIN: True
+    # PRETRAIN_PATH: '/home/lorenzo/.cache/torch/checkpoints/resnest50-528c19ca.pth'
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+
+OUTPUT_DIR: logs/CMDM/bagtricks_S50-10

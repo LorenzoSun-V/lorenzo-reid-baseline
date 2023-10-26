@@ -1,0 +1,14 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  PRETRAIN: True
+  PRETRAIN_PATH: /workspace/lorenzo/ReID/lorenzo-reid-baseline/logs/CMDM/bagtricks_R50/model_best.pth
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+TEST:
+  IMS_PER_BATCH: 1024
+
+OUTPUT_DIR: logs/market1501/bagtricks_R50

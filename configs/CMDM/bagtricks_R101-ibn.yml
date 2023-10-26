@@ -1,0 +1,14 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    DEPTH: 101x
+    WITH_IBN: True
+    PRETRAIN: True
+    PRETRAIN_PATH: '/home/lorenzo/.cache/torch/checkpoints/resnet101_ibn_a-59ea0ac6.pth'
+
+DATASETS:
+  NAMES: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+  TESTS: ("Market1501", "CUHK03", "DukeMTMC", "MSMT17")
+
+OUTPUT_DIR: logs/CMDM/bagtricks_R101-ibn

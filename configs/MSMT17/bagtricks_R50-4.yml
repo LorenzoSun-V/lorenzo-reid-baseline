@@ -1,0 +1,15 @@
+_BASE_: ../Base-bagtricks.yml
+# add IBN
+
+MODEL:
+  # TEST_WEIGHTS: logs/market1501/bagtricks_R50-4/model_best.pth
+  PRETRAIN: True
+  PRETRAIN_PATH: /workspace/lorenzo/ReID/lorenzo-reid-baseline/logs/CMDM/bagtricks_R50-ibn/model_best.pth
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("MSMT17",)
+  TESTS: ("MSMT17",)
+
+OUTPUT_DIR: logs/msmt17/bagtricks_R50-4
